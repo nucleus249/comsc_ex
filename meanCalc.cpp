@@ -1,3 +1,17 @@
+//***********************************
+//Program Assignment: 2
+//Program Name: meanCalc.cpp
+//Author Name: Nicholas Vaughan
+//Date: 02/18/16
+//Course: COMSC-1450-A
+//
+//Description:  This program reads from a text file,
+//calculates various means with the input, and outputs 
+//to another file.
+//
+//***********************************
+
+
 #include <fstream>
 #include <iostream>
 #include <cmath>

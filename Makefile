@@ -1,6 +1,6 @@
 
 
-INTERACTIVE_PROGS = HeightConvert
+INTERACTIVE_PROGS = HeightConvert binGuess stateCity
 
 NONINTERACTIVE_PROGS = meanCalc 
 
@@ -8,7 +8,7 @@ PROGS = $(INTERACTIVE_PROGS) $(NONINTERACTIVE_PROGS)
 
 
 CXX      = g++
-CXXFLAGS = -Wall -g
+CXXFLAGS = -Wall -g -std=c++11
 
 INTERACTIVE_OUTPUT   = $(INTERACTIVE_PROGS:=.out)
 NONINTERACIVE_OUTPUT = $(NONINTERACTIVE_PROGS:=.out)
@@ -17,6 +17,7 @@ NONINTERACIVE_OUTPUT = $(NONINTERACTIVE_PROGS:=.out)
 	./$< > $@
 
 .PHONY : all clean interactive
+
 
 all : $(PROGS) $(NONINTERACTIVE_OUTPUT)
 
