@@ -55,13 +55,17 @@ void subtract(double a[], double b[], double result[]){
       result[i] = a[i] - b[i];
 }
 
+//The purpose of the function is to take in two arrays of size N that
+//represent two polynomials, multiply them together, and place
+//the result in a third array.
 void multiply(double a[], double b[], double result[]){
    result[N] = {};
-   for(int i=0; i<N; i++)
+   for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
          int k = i + j;
-         result[k] = result[k] + a[i] * b[j];
+         result[k] += a[i] * b[j];
       }
+   }
 }
 
 void differentiate(double a[], double result[]){
@@ -70,15 +74,9 @@ void differentiate(double a[], double result[]){
       result[i] = (i+1) * a[i+1];
 }
 
-//int main() {
-  //  double a[N] = {12, 1, 0, -32.5, 0, 1};  // defines a polynomial
-    //cout << "The degree of polynomial (";
-    //print(a);
-    //cout << ") is " << degree(a) << endl;
-//}
 
 int main() {
-   double a[N] = {12, 1, 0, -32.5, 0, 1};  //first palynomial
+   double a[N] = {12, 1, 0, -32.5, 0, 1};  //first polynomial
    
    cout <<"\nEvaluation:\n";
    double x=-7.3;
@@ -100,7 +98,7 @@ int main() {
    cout << endl;
 
    cout << "\nSubtraction:\n";
-   add(a,b,c);
+   subtract(a,b,c);
    cout << '(';
    print(a);
    cout << ") - (";
@@ -110,7 +108,7 @@ int main() {
    cout << endl;
    
    cout << "\nMultiplication:\n";
-   add(a,b,c);
+   multiply(a,b,c);
    cout << '(';
    print(a);
    cout << ") * (";
@@ -123,6 +121,12 @@ int main() {
    cout << "The derivative of (";
    print(a);
    cout << ") is (";
+   differentiate(a,c);
    print(c);
+   cout << ')' << endl;
+   cout << "It's second derivative is (";
+   differentiate(c,c);
+   print(c);
+   cout << ')' << endl;
    cout << endl;
 }
