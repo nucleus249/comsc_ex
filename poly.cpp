@@ -1,3 +1,9 @@
+//Program: poly.cpp
+//Author Name: Nick Vaughan
+//Date: 4-13-16
+//COMSC 1341-A 
+
+
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -38,6 +44,12 @@ void print(double poly[]) {
         cout << 0;
 }
 
+//re-initializes result array to all zeros
+void set_zero(double result[]){
+   for(int i=0; i<N; i++)
+      result[i] = 0;
+}
+
 double evaluate(double a[], double x){
    double sum = 0;
    for(int i=0; i<N; i++)
@@ -46,20 +58,19 @@ double evaluate(double a[], double x){
 }
 
 void add(double a[], double b[], double result[]){
+   set_zero(result);
    for(int i=0; i<N; i++)
       result[i] = a[i] + b[i];
 }
 
 void subtract(double a[], double b[], double result[]){
+   set_zero(result);
    for(int i=0; i<N; i++)
       result[i] = a[i] - b[i];
 }
 
-//The purpose of the function is to take in two arrays of size N that
-//represent two polynomials, multiply them together, and place
-//the result in a third array.
 void multiply(double a[], double b[], double result[]){
-   result[N] = {};
+   set_zero(result);
    for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
          int k = i + j;
@@ -69,7 +80,6 @@ void multiply(double a[], double b[], double result[]){
 }
 
 void differentiate(double a[], double result[]){
-   result[N] = {};
    for(int i=0; i<N-1; i++)
       result[i] = (i+1) * a[i+1];
 }
